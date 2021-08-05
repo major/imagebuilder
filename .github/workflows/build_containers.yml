@@ -43,6 +43,11 @@ jobs:
           tags: ${{ matrix.container }}
           dockerfiles: |
             containers/${{ matrix.container }}.dockerfile
+          extra-args: |
+            --squash
+
+      - name: Check for image
+        run: podman image list
 
       - name: Test the container
         run: ./test-container.sh
