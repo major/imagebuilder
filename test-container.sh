@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -euxo pipefail
 
 CONTAINER_NAME=imagebuilder
 
@@ -16,7 +16,7 @@ echo "🚀 Launching the container"
 sudo podman run --rm -it --privileged \
     -v $(pwd)/shared:/repo \
     --name $CONTAINER_NAME \
-    $CONTAINER_TO_TEST &
+    localhost/${CONTAINER_TO_TEST}:latest &
 
 # Wait for composer to be fully running.
 echo "⏱ Waiting for composer to start"
