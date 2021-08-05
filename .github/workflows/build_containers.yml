@@ -46,6 +46,11 @@ jobs:
           extra-args: |
             --squash
 
+      - name: Copy the container to root's storage
+        run: |
+          podman save ${{ matrix.container }} | sudo podman load
+          sudo podman image list
+
       - name: Test the container
         run: ./test-container.sh
         env:
