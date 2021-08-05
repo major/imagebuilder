@@ -39,7 +39,7 @@ jobs:
         id: build-image
         uses: redhat-actions/buildah-build@v2
         with:
-          image: ${{ env.REGISTRY }}/${{ matrix.IMAGE_NAME }}
+          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: ${{ matrix.container }}
           dockerfiles: |
             containers/${{ matrix.container }}.dockerfile
@@ -47,7 +47,7 @@ jobs:
       - name: Test the container
         run: ./test-container.sh
         env:
-          CONTAINER_TO_TEST: "${{ env.REGISTRY }}/${{ matrix.IMAGE_NAME }}:${{ matrix.container }}"
+          CONTAINER_TO_TEST: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.container }}"
 
       - name: Push to GitHub Container Repository
         id: push-to-ghcr
