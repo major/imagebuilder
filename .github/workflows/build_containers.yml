@@ -42,7 +42,7 @@ jobs:
           image: ${{ env.REGISTRY }}/${{ matrix.IMAGE_NAME }}
           tags: ${{ matrix.container }}
           dockerfiles: |
-           ./Dockerfile
+            containers/${{ matrix.container }}.dockerfile
 
       - name: Test the container
         run: ./test-container.sh
