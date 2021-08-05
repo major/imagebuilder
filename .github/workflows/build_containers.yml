@@ -39,8 +39,8 @@ jobs:
         id: build-image
         uses: redhat-actions/buildah-build@v2
         with:
-          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: ${{ matrix.container }}
+          image: ${{ matrix.container }}
+          tags: latest
           dockerfiles: |
             containers/${{ matrix.container }}.dockerfile
           extra-args: |
@@ -52,12 +52,17 @@ jobs:
       - name: Test the container
         run: ./test-container.sh
         env:
-          CONTAINER_TO_TEST: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.container }}"
+          CONTAINER_TO_TEST: ${{ matrix.container }}
+
+      - name: Tag container
+        run: |
+          podman tag ${{ matrix.container }}:latest \
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.container }}
 
       - name: Push to GitHub Container Repository
         id: push-to-ghcr
         uses: redhat-actions/push-to-registry@v2
         with:
           image: ${{ env.IMAGE_NAME }}
-          tags: ${{ steps.build-image.outputs.tags }}
+          tags: ${{ matrix.container }}
           registry: ${{ env.REGISTRY }}
