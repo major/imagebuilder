@@ -13,10 +13,10 @@ composer-cli () {
 
 # Start the container.
 echo "🚀 Launching the container"
-sudo podman run --rm -it --privileged \
+sudo podman run --rm --privileged \
     -v $(pwd)/shared:/repo \
     --name $CONTAINER_NAME \
-    ${CONTAINER_TO_TEST} &
+    ${CONTAINER_TO_TEST}
 
 # Wait for composer to be fully running.
 echo "⏱ Waiting for composer to start"
