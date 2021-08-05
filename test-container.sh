@@ -16,7 +16,7 @@ echo "🚀 Launching the container"
 sudo podman run --rm -it --privileged \
     -v $(pwd)/shared:/repo \
     --name $CONTAINER_NAME \
-    localhost/${CONTAINER_TO_TEST}:latest &
+    ${CONTAINER_TO_TEST} &
 
 # Wait for composer to be fully running.
 echo "⏱ Waiting for composer to start"
