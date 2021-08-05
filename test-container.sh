@@ -13,6 +13,7 @@ composer-cli () {
 
 # Start the container.
 echo "🚀 Launching the container"
+sudo podman ps
 sudo podman run --rm --privileged \
     --name $CONTAINER_NAME \
     ${CONTAINER_TO_TEST}
