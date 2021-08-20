@@ -17,5 +17,21 @@ podman pull ghcr.io/major/imagebuilder:fedora-34
 podman pull ghcr.io/major/imagebuilder:fedora-rawhide
 ```
 
+## Running Image Builder from within the container
+
+Each container starts systemd so that socket activation works well between the
+different components. Building images does require additional privileges for
+certain operations, so you will likely need the `--privileged` flag and use
+`sudo`.
+
+_(If anyone knows of a workaround to avoid using `--privileged` and/or `sudo`,
+please [let me know](mailto:major+imagebuilder@mhtx.net)!)_
+
+```shell
+sudo podman run --rm --detach --privileged \
+    --name imagebuilder \
+    ghcr.io/major/imagebuilder:centos-stream8
+```
+
 [Image Builder]: https://www.osbuild.org/documentation/
 [GitHub container repository]: https://github.com/major/imagebuilder/pkgs/container/imagebuilder
