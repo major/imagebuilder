@@ -23,6 +23,7 @@ jobs:
         container:
           - centos-stream8
           - fedora-34
+          - fedora-35
           - fedora-rawhide
     steps:
       - name: Checkout repo
