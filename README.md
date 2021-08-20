@@ -12,8 +12,8 @@ You can pull any of the containers from this repository using `podman` or
 
 ```console
 podman pull ghcr.io/major/imagebuilder:centos-stream8
-podman pull ghcr.io/major/imagebuilder:fedora-33
 podman pull ghcr.io/major/imagebuilder:fedora-34
+podman pull ghcr.io/major/imagebuilder:fedora-35
 podman pull ghcr.io/major/imagebuilder:fedora-rawhide
 ```
 
