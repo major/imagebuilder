@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         container:
-          - centos-stream8
+          - centos-stream9
           - fedora-35
           - fedora-36
           - fedora-rawhide
