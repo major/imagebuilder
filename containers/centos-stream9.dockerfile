@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:34
+FROM quay.io/centos/centos:stream9
 RUN echo "fastestmirror=1" >> /etc/dnf/dnf.conf
 RUN mkdir -vp /etc/selinux && touch /etc/selinux/config
 RUN dnf -qy upgrade && \

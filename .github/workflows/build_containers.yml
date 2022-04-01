@@ -2,13 +2,13 @@ name: Build containers
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths-ignore:
-      - 'README.md'
+      - "README.md"
   pull_request:
-    branches: [ main ]
+    branches: [main]
     paths-ignore:
-      - 'README.md'
+      - "README.md"
   workflow_dispatch:
 
 env:
@@ -23,6 +23,8 @@ jobs:
         container:
           - centos-stream8
           - fedora-35
+          - fedora-36
+          - fedora-rawhide
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
