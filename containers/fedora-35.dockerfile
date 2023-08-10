@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:35
+FROM registry.fedoraproject.org/fedora:40
 RUN echo -e "fastestmirror=1\nmax_parallel_downloads=20" >> /etc/dnf/dnf.conf
 RUN mkdir -vp /etc/selinux && touch /etc/selinux/config
 RUN dnf -qy upgrade && \
