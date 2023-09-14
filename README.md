@@ -11,10 +11,8 @@ You can pull any of the containers from this repository using `podman` or
 `docker`:
 
 ```console
-podman pull ghcr.io/major/imagebuilder:centos-stream8
-podman pull ghcr.io/major/imagebuilder:fedora-34
-podman pull ghcr.io/major/imagebuilder:fedora-35
-podman pull ghcr.io/major/imagebuilder:fedora-rawhide
+podman pull ghcr.io/major/imagebuilder/centos-stream9:main
+podman pull ghcr.io/major/imagebuilder/fedora-latest:main
 ```
 
 ## Running Image Builder from within the container
@@ -30,7 +28,7 @@ please [let me know](mailto:major+imagebuilder@mhtx.net)!)_
 ```shell
 sudo podman run --rm --detach --privileged \
     --name imagebuilder \
-    ghcr.io/major/imagebuilder:centos-stream8
+    ghcr.io/major/imagebuilder:centos-stream8=9
 ```
 
 [Image Builder]: https://www.osbuild.org/documentation/
