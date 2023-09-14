@@ -22,8 +22,7 @@ jobs:
       matrix:
         container:
           - centos-stream9
-          - fedora-35
-          - fedora-36
+          - fedora-latest
           - fedora-rawhide
     steps:
       - name: Checkout repo
